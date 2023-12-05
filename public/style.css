@@ -63,6 +63,49 @@ main{
   height: 100%;
 }
 
+.splash{
+  position: fixed;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary-gb-color);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+  opacity: 0;
+}
+
+.splash.active{
+  /* top: 0%; */
+  opacity: 1;
+  pointer-events: none;
+
+}
+
+.progress__bar{
+  position: relative;
+  width: 300px;
+  height: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bar__fill{
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff8c;
+  transition: .5s;
+
+}
+
 .scrollable{
   position: absolute;
   top: 0;
@@ -407,6 +450,9 @@ footer{
     font-size: 2.074rem;
 
   }
+  .footer__container div{
+    grid-column: span 12;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -475,5 +521,7 @@ footer{
     color: #161616;
     font-size: 1.2rem;
   }
+
+
   
 }

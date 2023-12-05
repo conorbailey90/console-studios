@@ -1,8 +1,23 @@
-import '../style.css'
 import * as THREE from 'three';
 import { SmoothScroll } from './smoothScroll';
 import fragment from './shaders/fragment.glsl';
 import vertex from "./shaders/vertex.glsl";
+
+const splash = document.querySelector('.splash')
+const progressBarFill = document.querySelector('.bar__fill');
+
+function updateLoading(percent, time){
+  setTimeout(() => {
+    progressBarFill.style.transform = `translateX(${percent}%)`
+    if(percent === 100){
+      setTimeout(() => {
+        splash.classList.remove('active')
+      },500)
+    
+    }
+  }, time)
+ 
+}
 
 const canvas = document.querySelector('.webgl')
 const scrollable = document.querySelector('.scrollable');
@@ -43,6 +58,7 @@ class CanvasWebgl{
       height: window.innerHeight,
     }
     this.aspectRatio = this.sizes.width / this.sizes.height 
+    updateLoading(25, 200);
   }
 
   setup(){
@@ -58,6 +74,10 @@ class CanvasWebgl{
     });
     this.renderer.setSize(this.sizes.width, this.sizes.height);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio,2))
+
+    // progressBarFill.computedStyleMap.transform.translate
+    // DO A FUNCTION HERE
+    updateLoading(50, 800);
   }
 
   addEventListeners(){
@@ -101,6 +121,8 @@ class CanvasWebgl{
       this.mouse.prevX = this.mouse.x;
       this.mouse.prevY = this.mouse.y;
     })
+
+    updateLoading(100, 2000);
   }
 
   createMesh(){
@@ -110,6 +132,7 @@ class CanvasWebgl{
       this.meshes.push(mesh);
     
     }
+    updateLoading(75, 1500);
   }
 
   animate(){
@@ -152,7 +175,7 @@ class MeshItem{
 
   createMesh(){
     // create a buffer with color data
-      this.size = 32 * 2;
+      this.size = 32;
       const width = this.size;
       const height = this.size;
 

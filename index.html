@@ -4,10 +4,20 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css">
     <title>Vite App</title>
   </head>
   <body>
     <main>
+      <div class="splash active">
+        <div class="loading__panel">
+          <h3>Loading</h3></br>
+          <div class="progress__bar">
+            <div class="bar__fill"></div>
+          </div>
+        </div>
+       
+      </div>
       <canvas class="webgl"></canvas>
       <div class="nav__bar">
         <div class="nav__container">
@@ -126,9 +136,7 @@
               <a style=" font-size: 1rem; margin-right: 1rem" href="">X</a>
               <a style=" font-size: 1rem; margin-right: 1rem" href="">LI</a>
             </div>
-            <div>
-              <a style="float: right;" href="">Back to top</a>
-            </div>
+          
             <div>
               <p style="opacity: .6;">Offices</p>
               <p>123 Fake Street, London
@@ -137,6 +145,9 @@
             <div>
               <p style="opacity: .6;">Phone</p>
               <p>+44 07540 809644</p>
+            </div>
+            <div style="grid-column: span 12;">
+              <a href="">Back to top</a>
             </div>
           </div>
         </footer>
